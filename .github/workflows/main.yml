@@ -13,14 +13,12 @@ jobs:
         run: sudo apt install python3
       - name: Run Tests
         run: sudo python3 __init__.py
-macOS:
-  name: Test on macOS
-  runs-on: macos-latest
-  steps:
-    - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: |
-        brew link --overwrite python@3.8
-    - name: Run tests
-      run: |
-        python3 __init__.py
+  macOS:
+    name: Test on macOS
+    runs-on: macos-latest
+    steps:
+     - uses: actions/checkout@v2
+     - name: Install dependencies
+       run: brew link --overwrite python@3.8
+     - name: Run tests
+       run: python3 __init__.py
