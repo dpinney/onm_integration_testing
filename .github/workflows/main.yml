@@ -21,4 +21,4 @@ jobs:
      - name: Install dependencies
        run: brew link --overwrite python@3.8
      - name: Run tests
-       run: python3 __init__.py
+       run: sudo python3 __init__.py
