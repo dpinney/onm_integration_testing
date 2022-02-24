@@ -16,7 +16,6 @@ def install_onm(target : list = platform.system()):
 	''' WARNING, WIP. TODO: Linux support, license check, tests. '''
 	installCmd = {
 		'Darwin' : [
-			'sudo cat /Library/gurobi/gurobi.lic',
 			'HOMEBREW_NO_AUTO_UPDATE=1 brew install julia',
 			'wget "https://packages.gurobi.com/9.1/gurobi9.1.2_mac64.pkg"',
 			'sudo installer -pkg gurobi9.1.2_mac64.pkg -target /',
@@ -62,5 +61,5 @@ if __name__ == '__main__':
 	thisDirPath = Path(thisDir)
 	omfDir = thisDirPath.parent.parent.absolute()
 	install_onm()
-	build_settings_file(circuitPath=f'./iowa240.network.reduced.dss', settingsPath='./settings.json', max_switch_actions=1, vm_lb_pu=0.9, vm_ub_pu=1.1, sbase_default=0.001, line_limit_mult='Inf', vad_deg=5.0)
-	run_onm(circuitPath=f'./iowa240.network.reduced.dss', settingsPath='./settings.json', outputPath="./onm_out.json", eventsPath=f'./iowa240.events.json', gurobi='true', verbose='true', optSwitchSolver="mip_solver", fixSmallNumbers='true', skipList='["faults","stability"]')
+	build_settings_file(circuitPath=f'./circuit.dss', settingsPath='./settings.json', max_switch_actions=1, vm_lb_pu=0.9, vm_ub_pu=1.1, sbase_default=0.001, line_limit_mult='Inf', vad_deg=5.0)
+	run_onm(circuitPath=f'./circuit.dss', settingsPath='./settings.json', outputPath="./onm_out.json", eventsPath=f'./events.json', gurobi='true', verbose='true', optSwitchSolver="mip_solver", fixSmallNumbers='true', skipList='["faults","stability"]')
