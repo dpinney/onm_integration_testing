@@ -27,6 +27,6 @@ jobs:
      - name: Install dependencies
        run: brew link --overwrite python@3.8
      - name: Add license
-       run: sudo mkdir /Library/gurobi && sudo echo "$GUROBI_LICENSE" >> /Library/gurobi/gurobi.lic
+       run: echo "$GUROBI_LICENSE" >> ./gurobi.lic
      - name: Run tests
        run: sudo python3 __init__.py
