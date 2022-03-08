@@ -5,6 +5,8 @@ on: push
 jobs:
   Ubuntu:
     name: Test OMF on Ubuntu
+    env: 
+      GUROBI_LICENSE: ${{ secrets.GUROBI_LICENSE }}
     runs-on: ubuntu-18.04
     timeout-minutes: 120
     steps:
@@ -15,6 +17,8 @@ jobs:
         run: sudo python3 __init__.py
   macOS:
     name: Test on macOS
+    env: 
+      GUROBI_LICENSE: ${{ secrets.GUROBI_LICENSE }}
     runs-on: macos-latest
     steps:
      - uses: actions/checkout@v2
