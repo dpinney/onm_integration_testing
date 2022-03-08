@@ -5,24 +5,28 @@ on: push
 jobs:
   Ubuntu:
     name: Test OMF on Ubuntu
-    env: 
-      GUROBI_LICENSE: ${{ secrets.GUROBI_LICENSE }}
     runs-on: ubuntu-18.04
     timeout-minutes: 120
+    env: 
+      GUROBI_LICENSE: ${{ secrets.GUROBI_LICENSE }}
     steps:
       - uses: actions/checkout@v2 # Checkout whichever ref that triggered this workflow
       - name: Install Dependencies
         run: sudo apt install python3
+      - name: Add license
+        run: mkdir /opt/gurobi && echo "$GUROBI_LICENSE" >> /opt/gurobi/gurobi.lic
       - name: Run Tests
         run: sudo python3 __init__.py
   macOS:
     name: Test on macOS
+    runs-on: macos-latest
     env: 
       GUROBI_LICENSE: ${{ secrets.GUROBI_LICENSE }}
-    runs-on: macos-latest
     steps:
      - uses: actions/checkout@v2
      - name: Install dependencies
        run: brew link --overwrite python@3.8
+     - name: Add license
+       run: mkdir /Library/gurobi && echo "$GUROBI_LICENSE" >> /Library/gurobi/gurobi.lic
      - name: Run tests
        run: sudo python3 __init__.py
