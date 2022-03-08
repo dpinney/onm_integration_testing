@@ -25,7 +25,7 @@ def install_onm(target : list = platform.system()):
 			'source ~/.zshrc',
 			'''julia -e 'import Pkg; Pkg.add("Gurobi")' ''',
 			'''julia -e 'import Pkg; Pkg.build("Gurobi")' ''',
-			'''julia -e 'import Pkg; Pkg.add(Pkg.PackageSpec(;name="PowerModelsDistribution", version="2.1.0"));' ''',
+			'''julia -e 'import Pkg; Pkg.add(Pkg.PackageSpec(;name="PowerModelsDistribution", version="0.14.1"));' ''',
 			'''julia -e 'import Pkg; Pkg.add(Pkg.PackageSpec(;name="PowerModelsONM", version="2.1.0"));' ''',
 			f'touch {thisDir}/instantiated.txt'
 		],
@@ -43,7 +43,7 @@ def install_onm(target : list = platform.system()):
 			'source ~/.bashrc',
 			'''julia -e 'import Pkg; Pkg.add("Gurobi")' ''',
 			'''julia -e 'import Pkg; Pkg.build("Gurobi")' ''',
-			'''julia -e 'import Pkg; Pkg.add(Pkg.PackageSpec(;name="PowerModelsDistribution", version="2.1.0"));’ ''',
+			'''julia -e 'import Pkg; Pkg.add(Pkg.PackageSpec(;name="PowerModelsDistribution", version="0.14.1"));’ ''',
 			'''julia -e 'import Pkg; Pkg.add(Pkg.PackageSpec(;name="PowerModelsONM", version="2.1.0"));' ''',
 			f'touch {thisDir}/instantiated.txt'
 		]
