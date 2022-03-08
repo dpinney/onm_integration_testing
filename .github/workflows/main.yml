@@ -14,7 +14,7 @@ jobs:
       - name: Install Dependencies
         run: sudo apt install python3
       - name: Add license
-        run: mkdir /opt/gurobi && echo "$GUROBI_LICENSE" >> /opt/gurobi/gurobi.lic
+        run: sudo mkdir /opt/gurobi && sudo echo "$GUROBI_LICENSE" >> /opt/gurobi/gurobi.lic
       - name: Run Tests
         run: sudo python3 __init__.py
   macOS:
@@ -27,6 +27,6 @@ jobs:
      - name: Install dependencies
        run: brew link --overwrite python@3.8
      - name: Add license
-       run: mkdir /Library/gurobi && echo "$GUROBI_LICENSE" >> /Library/gurobi/gurobi.lic
+       run: sudo mkdir /Library/gurobi && sudo echo "$GUROBI_LICENSE" >> /Library/gurobi/gurobi.lic
      - name: Run tests
        run: sudo python3 __init__.py
