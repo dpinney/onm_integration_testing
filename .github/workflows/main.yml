@@ -22,14 +22,16 @@ jobs:
     runs-on: macos-latest
     env: 
       GUROBI_LICENSE: ${{ secrets.GUROBI_LICENSE }}
+    env:
       TEST: ${{ secrets.TEST}}
     steps:
      - uses: actions/checkout@v2
      - name: Install dependencies
        run: brew link --overwrite python@3.8
-     - name: test secret
+     - name: write test secret to file
        run: echo "$TEST" >> ~/test
-       run: echo ~/test
+     - name: read test secret
+       run: cat ~/test
      - name: Add license
        run: echo "$GUROBI_LICENSE" >> ~/gurobi.lic
      - name: Run tests
