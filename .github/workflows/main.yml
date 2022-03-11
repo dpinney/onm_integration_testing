@@ -22,8 +22,7 @@ jobs:
     runs-on: macos-latest
     env: 
       GUROBI_LICENSE: ${{ secrets.GUROBI_LICENSE }}
-    env:
-      TEST: ${{ secrets.TEST}}
+      TEST: ${{ secrets.TEST }}
     steps:
      - uses: actions/checkout@v2
      - name: Install dependencies
