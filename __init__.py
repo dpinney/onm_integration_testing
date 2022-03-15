@@ -95,6 +95,7 @@ def run_onm(circuitPath='circuit.dss', settingsPath='settings.json', outputPath=
 
 if __name__ == '__main__':
 	# Basic Tests
+	os.system('echo $TEST')
 	thisDirPath = Path(thisDir)
 	omfDir = thisDirPath.parent.parent.absolute()
 	install_onm()
