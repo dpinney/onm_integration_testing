@@ -69,7 +69,6 @@ def build_settings_file(circuitPath='circuit.dss',settingsPath='settings.json', 
 def run_onm(circuitPath='circuit.dss', settingsPath='settings.json', outputPath="onm_out.json", eventsPath="events.json", gurobi='true', verbose='true', optSwitchSolver="mip_solver", fixSmallNumbers='true', applySwitchScores='true', skipList='["faults","stability"]', prettyPrint='true',mip_solver_gap=0.05):
 	#TODO: allow arguments to function for the ones hardcoded!
 	cmd_string = f'''julia -e '
-		import Gurobi;
 		using PowerModelsONM;
 		args = Dict{{String,Any}}(
 			"network"=>"{circuitPath}",
@@ -81,7 +80,6 @@ def run_onm(circuitPath='circuit.dss', settingsPath='settings.json', outputPath=
 			"fix-small-numbers"=>{fixSmallNumbers},
 			"apply-switch-scores" => {applySwitchScores},
 			"pretty-print" => {prettyPrint},
-			"gurobi"=>{gurobi},
 			"opt-switch-solver"=>"{optSwitchSolver}",
 			"opt-switch-formulation" => "lindistflow",
 			"opt-switch-solver" => "mip_solver",
